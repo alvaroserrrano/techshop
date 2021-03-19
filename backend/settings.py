@@ -27,7 +27,7 @@ SECRET_KEY = 'squfy^51wyx4d%2qx)%s!806(w*x-mrv6-7l=ed+($q%-e#6l0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.01', 'localhost', 'techshop-asr.herokuapp.com']
 
 
 # Application definition
@@ -157,3 +157,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+MEDIA_URL = '/images/'
+
+STATICFILES_DIRS = [
+os.path.join(BASE_DIR, 'static'),
+os.path.join(BASE_DIR,'frontend/build/static' )
+]
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+
+if os.getcwd() == '/app':
+    DEBUG = False
+
