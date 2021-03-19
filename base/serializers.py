@@ -33,7 +33,7 @@ class UserSerializer(serializers.ModelSerializer):
     def get_isAdmin(self, obj):
       return obj.is_staff
 
-    def get_name(self, ob):
+    def get_name(self, obj):
       name = obj.first_name
       if name == '':
         name = obj.email
@@ -71,7 +71,7 @@ class OrderSerializer(serializers.ModelSerializer):
 
   class Meta:
     model = Order
-    field = '__all__'
+    fields = '__all__'
 
   def get_orderItems(self, obj):
     items = obj.orderitem_set.all()
