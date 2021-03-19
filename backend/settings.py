@@ -27,7 +27,7 @@ SECRET_KEY = 'squfy^51wyx4d%2qx)%s!806(w*x-mrv6-7l=ed+($q%-e#6l0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.01', 'localhost', 'techshop-asr.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'techshop-asr.herokuapp.com']
 
 
 # Application definition
