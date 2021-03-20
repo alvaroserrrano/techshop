@@ -3,7 +3,7 @@ from datetime import datetime
 from base.models import Order, OrderItem, Product, ShippingAddress
 from base.serializers import OrderSerializer, ProductSerializer
 from rest_framework import status
-from rest_framework.decorators import api_view, permission_classses
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 

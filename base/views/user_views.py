@@ -67,7 +67,8 @@ def registerUser(request):
     user = User.objects.create(first_name=data['name'], username=data['email'], email=data['email'], password = make_password(data['password']))
     serializer = UserSerializerWithToken(user, many=False)
     return Response(serializer.data)
-  except:
+  except Exception as e:
+    print(e)
     msg = {'message':'Email already registered'}
     return Response(msg, status = status.HTTP_400_BAD_REQUEST)
 
