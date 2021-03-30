@@ -16,24 +16,23 @@ def getProducts(request):
     products = Product.objects.filter(
         name__icontains=q).order_by('-createdAt')
 
-    # page = request.query_params.get('page')
-    # paginator = Paginator(products, 5)
+    page = request.query_params.get('page')
+    paginator = Paginator(products, 5)
 
-    # try:
-    #     products = paginator.page(page)
-    # except PageNotAnInteger:
-    #     products = paginator.page(1)
-    # except EmptyPage:
-    #     products = paginator.page(paginator.num_pages)
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
 
-    # if page == None:
-    #     page = 1
+    if page == None:
+        page = 1
 
-    # page = int(page)
+    page = int(page)
     # print('Page:', page)
     serializer = ProductSerializer(products, many=True)
-    return Response({'products':serializer.data})
-    # return Response({'products': serializer.data, 'page': page, 'pages': paginator.num_pages})
+    return Response({'products': serializer.data, 'page': page, 'pages': paginator.num_pages})
 
 
 @api_view(['GET'])
