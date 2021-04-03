@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'ecommerce-asr',
         'USER': os.environ.get('DB_USERNAME'),
         'PASSWORD': os.environ.get('DB_PASSWORD'),
@@ -192,5 +192,6 @@ AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 CORS_ALLOW_ALL_ORIGINS = True
 
 
+AWS_STORAGE_BUCKET_NAME = 'ecommerce-asr'
 if os.getcwd() == '/app':
     DEBUG = False
